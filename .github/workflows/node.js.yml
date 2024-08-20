@@ -39,7 +39,7 @@ jobs:
       - name: Build Application
         run: |
           npm run build
-          ls -al dist/  # Check if the dist/ directory contains the build files
+          
           
       - name: List all files after build
         run: find . -type f
