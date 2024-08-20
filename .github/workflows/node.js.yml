@@ -34,7 +34,13 @@ jobs:
       # Step 4: Install npm dependencies from JFrog Artifactory
       - name: Install npm dependencies
         run: npm install
-
+        
+      # Step 5: Build the application and check the output directory
+      - name: Build Application
+        run: |
+          npm run build
+          ls -al   # Check if the dist/ directory contains the build files
+      
       - name: Publish Build Artifact
         uses: actions/upload-artifact@v3
         with:
