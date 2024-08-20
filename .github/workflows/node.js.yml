@@ -49,7 +49,7 @@ jobs:
         with:
           name: '${{ vars.imagename }}-artifact'
           path: |
-            ./
+            '**/*'
             !./**/node_modules/**  # Exclude node_modules
             !./.git/**  # Exclude .git directory
             !./**/.vs/**
