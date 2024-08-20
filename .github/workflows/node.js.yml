@@ -39,10 +39,11 @@ jobs:
       - name: Build Application
         run: |
           npm run build
-          ls -al   # Check if the dist/ directory contains the build files
+          ls -al dist/  # Check if the dist/ directory contains the build files
+          ls -al build/
       
       - name: Publish Build Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: '${{ env.appName }}-artifact'
-          path: dist/  # Assuming this is the output directory
+          name: '${{ vars.imageame }}-artifact'
+          path: build/  # Assuming this is the output directory
