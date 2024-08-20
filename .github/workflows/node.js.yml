@@ -40,10 +40,12 @@ jobs:
         run: |
           npm run build
           ls -al dist/  # Check if the dist/ directory contains the build files
-          ls -al build/
-      
+          
+      - name: List all files after build
+        run: find . -type f
+
       - name: Publish Build Artifact
         uses: actions/upload-artifact@v3
         with:
           name: '${{ vars.imageame }}-artifact'
-          path: build/  # Assuming this is the output directory
+          path: /  # Assuming this is the output directory
