@@ -47,5 +47,11 @@ jobs:
       - name: Publish Build Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: '${{ vars.imageame }}-artifact'
-          path: /  # Assuming this is the output directory
+          name: '${{ vars.imagename }}-artifact'
+          path: |
+            ./
+            !./**/node_modules/**  # Exclude node_modules
+            !./.git/**  # Exclude .git directory
+            !./**/.vs/**
+            !./**/.vscode/**
+            !./**/manifests/**
